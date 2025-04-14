@@ -1,0 +1,9 @@
+{
+    "accountNumber": "677276078734",
+    "regionName": "us-east-1",
+    "collectionArn": "arn:aws:aoss:us-east-1:677276078734:collection/e0ueyemy9ta6izbfugf7",
+    "collectionId": "e0ueyemy9ta6izbfugf7",
+    "vectorIndexName": "ws-index-fixed",
+    "bedrockExecutionRoleArn": "arn:aws:iam::677276078734:role/advanced-rag-workshop-bedrock_execution_role1-us-east-1",
+    "s3Bucket": "677276078734-us-east-1-advanced-rag-workshop"
+}
