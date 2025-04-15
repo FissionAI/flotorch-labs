@@ -1,0 +1,11 @@
+{
+    "accountNumber": "677276078734",
+    "regionName": "us-east-1",
+    "collectionArn": "arn:aws:aoss:us-east-1:677276078734:collection/h4x23xd1thd0kpl13b67",
+    "collectionId": "h4x23xd1thd0kpl13b67",
+    "vectorIndexName": "ws-index-fixed",
+    "bedrockExecutionRoleArn": "arn:aws:iam::677276078734:role/advanced-rag-workshop-bedrock_execution_role-us-east-1",
+    "s3Bucket": "677276078734-us-east-1-advanced-rag-workshop",
+    "s3_ground_truth_path": "s3://677276078734-us-east-1-advanced-rag-workshop/ground_truth_data/kbqa_questions_answers.json",
+    "kbFixedChunk": "TJSZIWHAIM"
+}
