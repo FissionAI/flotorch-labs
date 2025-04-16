@@ -27,6 +27,7 @@ This script is designed for use in an AWS environment with proper permissions.
 
 import boto3
 import json
+import urllib.parse
 from sagemaker import get_execution_role
 
 # Initialize AWS clients
@@ -246,5 +247,86 @@ class AdvancedRagIamRoles:
             return encryption_policy, network_policy, access_policy
         except Exception as e:
             print(f"Error: {str(e)}")
+
+
+import boto3
+import json
+
+def configure_sagemaker_role_permissions(role_name: str, region_name: str = 'us-east-1'):
+    iam = boto3.client('iam', region_name=region_name)
+    policy_name = 'FullSageMakerEndpointAccessPolicy'
+
+    # All relevant SageMaker endpoint permissions
+    endpoint_actions = [
+        "sagemaker:CreateEndpoint",
+        "sagemaker:DeleteEndpoint",
+        "sagemaker:DescribeEndpoint",
+        "sagemaker:ListEndpoints",
+        "sagemaker:UpdateEndpoint",
+        "sagemaker:UpdateEndpointWeightsAndCapacities",
+        "sagemaker:CreateEndpointConfig",
+        "sagemaker:DeleteEndpointConfig",
+        "sagemaker:DescribeEndpointConfig",
+        "sagemaker:ListEndpointConfigs",
+        "sagemaker:InvokeEndpoint",
+        "sagemaker:InvokeEndpointAsync"
+    ]
+
+    # Policy document allowing all actions on any SageMaker endpoint resources
+    policy_document = {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": endpoint_actions,
+                "Resource": "*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ecr:GetDownloadUrlForLayer",
+                    "ecr:BatchGetImage",
+                    "ecr:GetAuthorizationToken"
+                ],
+                "Resource": "*"
+            }
+        ]
+    }
+
+    try:
+        print(f"Attaching inline policy '{policy_name}' to role '{role_name}'...")
+        iam.put_role_policy(
+            RoleName=role_name,
+            PolicyName=policy_name,
+            PolicyDocument=json.dumps(policy_document)
+        )
+        print("✅ Policy attached successfully.")
+    except Exception as e:
+        print("❌ Error attaching policy:", e)
+
+    # Trust policy for SageMaker
+    trust_policy = {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Principal": {
+                    "Service": "sagemaker.amazonaws.com"
+                },
+                "Action": "sts:AssumeRole"
+            }
+        ]
+    }
+
+    try:
+        print(f"Updating trust relationship for role '{role_name}'...")
+        iam.update_assume_role_policy(
+            RoleName=role_name,
+            PolicyDocument=json.dumps(trust_policy)
+        )
+        print("✅ Trust policy updated successfully.")
+    except Exception as e:
+        print("❌ Error updating trust policy:", e)
+
 
 
