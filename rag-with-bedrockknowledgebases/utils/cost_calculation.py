@@ -12,7 +12,6 @@ df = pd.read_csv('./data/bedrock_limits_small.csv')
 def calculate_experiment_question_details(experiment_question_metrics_items):
     total_questions = len(experiment_question_metrics_items)
     overall_inferencer_time = 0
-    average_inferencer_time = 0
     reranker_queries = 0
     for question in experiment_question_metrics_items:
         answer_metadata = question.get("answer_metadata", None)
@@ -31,6 +30,7 @@ def calculate_experiment_question_details(experiment_question_metrics_items):
         "average_inferencer_time": average_inferencer_time,
         "reranker_queries": reranker_queries
     }
+
 
 def calculate_bedrock_inference_cost(sample_input, exp_config_data):
     input_tokens = sample_input.get("answer_metadata", 0).get("inputTokens", 0)
@@ -74,10 +74,9 @@ def calculate_reranking_cost(exp_config_data, question_details):
     return {'reranking_cost': reranking_cost}
 
 
-
 def sagemaker_cost(time, number_of_instances=1):
     instance_cost_per_hour = 1.210  # per hour ml.g5.2xlarge per model
-    overall_cost = instance_cost_per_hour * number_of_instances * ((time / SECONDS_IN_MINUTE) / MINUTES_IN_HOUR)
+    overall_cost = instance_cost_per_hour * number_of_instances * (time / (1000 * 60 * 60))
 
     return overall_cost
 
