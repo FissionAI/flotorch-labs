@@ -256,39 +256,24 @@ def configure_sagemaker_role_permissions(role_name: str, region_name: str = 'us-
     iam = boto3.client('iam', region_name=region_name)
     policy_name = 'FullSageMakerEndpointAccessPolicy'
 
-    # All relevant SageMaker endpoint permissions
-    endpoint_actions = [
-        "sagemaker:CreateEndpoint",
-        "sagemaker:DeleteEndpoint",
-        "sagemaker:DescribeEndpoint",
-        "sagemaker:ListEndpoints",
-        "sagemaker:UpdateEndpoint",
-        "sagemaker:UpdateEndpointWeightsAndCapacities",
-        "sagemaker:CreateEndpointConfig",
-        "sagemaker:DeleteEndpointConfig",
-        "sagemaker:DescribeEndpointConfig",
-        "sagemaker:ListEndpointConfigs",
-        "sagemaker:InvokeEndpoint",
-        "sagemaker:InvokeEndpointAsync"
-    ]
-
     # Policy document allowing all actions on any SageMaker endpoint resources
     policy_document = {
         "Version": "2012-10-17",
         "Statement": [
             {
-                "Effect": "Allow",
-                "Action": endpoint_actions,
-                "Resource": "*"
+                "Action": [
+                    "sagemaker:*"
+                ],
+                "Resource": "*",
+                "Effect": "Allow"
             },
             {
-                "Effect": "Allow",
                 "Action": [
-                    "ecr:GetDownloadUrlForLayer",
-                    "ecr:BatchGetImage",
-                    "ecr:GetAuthorizationToken"
+                    "sts:*",
+                    "ecr:*"
                 ],
-                "Resource": "*"
+                "Resource": "*",
+                "Effect": "Allow"
             }
         ]
     }
