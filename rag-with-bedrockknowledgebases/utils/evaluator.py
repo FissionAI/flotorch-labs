@@ -188,7 +188,7 @@ class CustomEvaluator():
             data: List[Dict[str, Any]],
     ) -> List[Dict[str, Any]]:
         # example to fetch metrics, use like this
-        for each in data:
+        for each in tqdm.tqdm(data, desc="Processing"):
             prompt = self._load_system_prompt(each)
             payload = self.create_payload(prompt)
             response = self._make_api_request(payload)
