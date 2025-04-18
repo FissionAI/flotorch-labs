@@ -89,7 +89,7 @@ class AdvancedRagIamRoles:
                     "Effect": "Allow",
                     "Action": ["lambda:InvokeFunction"],
                     "Resource": [
-                        f'arn:aws:lambda:{self.region_name}:{self.account_number}:function:advanced-rag-custom-chunk:*'
+                        f'arn:aws:lambda:{self.region_name}:{self.account_number}:function:flotorch-rag-custom-chunk:*'
                     ],
                     "Condition": {
                         "StringEquals": {"aws:ResourceAccount": self.account_number}
@@ -112,26 +112,26 @@ class AdvancedRagIamRoles:
 
         # Create policies
         fm_policy = iam.create_policy(
-            PolicyName=f"advanced-rag-fm-policy-{self.region_name}",
+            PolicyName=f"flotorch-rag-fm-policy-{self.region_name}",
             PolicyDocument=json.dumps(foundation_model_policy_document),
             Description="Policy for accessing foundation models",
         )
 
         s3_policy = iam.create_policy(
-            PolicyName=f"advanced-rag-s3-policy-{self.region_name}",
+            PolicyName=f"flotorch-rag-s3-policy-{self.region_name}",
             PolicyDocument=json.dumps(s3_policy_document),
             Description="Policy for accessing S3 storage"
         )
 
         lambda_policy = iam.create_policy(
-            PolicyName=f"advanced-rag-lambda-policy-{self.region_name}",
+            PolicyName=f"flotorch-rag-lambda-policy-{self.region_name}",
             PolicyDocument=json.dumps(lambda_policy_document),
             Description="Policy for invoking Lambda functions"
         )
 
         # Create Bedrock execution role
         bedrock_kb_execution_role = iam.create_role(
-            RoleName=f"advanced-rag-workshop-bedrock_execution_role-{self.region_name}",
+            RoleName=f"flotorch-rag-workshop-bedrock_execution_role-{self.region_name}",
             AssumeRolePolicyDocument=json.dumps(assume_role_policy_document),
             Description="Amazon Bedrock Knowledge Base Execution Role",
             MaxSessionDuration=3600
@@ -162,7 +162,7 @@ class AdvancedRagIamRoles:
         }
 
         oss_policy = iam.create_policy(
-            PolicyName=f"advanced-rag-oss-policy-{self.region_name}",
+            PolicyName=f"flotorch-rag-oss-policy-{self.region_name}",
             PolicyDocument=json.dumps(oss_policy_document),
             Description="Policy for accessing OpenSearch Serverless",
         )
@@ -181,7 +181,7 @@ class AdvancedRagIamRoles:
             try:
                 # Check if the encryption policy exists
                 encryption_policy = aoss_client.create_security_policy(
-                    name="advanced-rag-enc-policy2",
+                    name="flotorch-rag-enc-policy2",
                     policy=json.dumps(
                         {
                             'Rules': [{'Resource': ['collection/' + vector_store_name],
@@ -196,7 +196,7 @@ class AdvancedRagIamRoles:
             try:
                 # Check if the network policy exists
                 network_policy = aoss_client.create_security_policy(
-                    name="advanced-rag-network-policy2",
+                    name="flotorch-rag-network-policy2",
                     policy=json.dumps(
                         [
                             {'Rules': [{'Resource': ['collection/' + vector_store_name],
@@ -211,7 +211,7 @@ class AdvancedRagIamRoles:
             try:
                 # Check if the access policy exists
                 access_policy = aoss_client.create_access_policy(
-                    name="advanced-rag-access-policy2",
+                    name="flotorch-rag-access-policy2",
                     policy=json.dumps(
                         [
                             {
