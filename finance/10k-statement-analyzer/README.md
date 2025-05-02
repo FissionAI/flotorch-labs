@@ -21,7 +21,7 @@ Users can input a question and select up to three different Bedrock-supported LL
 - **Frontend**: [Streamlit](https://streamlit.io/)
 - **Backend**: [FastAPI](https://fastapi.tiangolo.com/)
 - **Knowledge Base**: 10-K statements from 2022–2024 for Apple, Amazon, Google, Microsoft, Netflix, Intel, NVIDIA, and Tesla are indexed into Amazon Bedrock Knowledge Base.
-- **Context Retrieval**: Retrieved from Bedrock KnowledgeBases ussing `flotorch-core` package.
+- **Context Retrieval**: Retrieved from Bedrock KnowledgeBases using `flotorch-core` package.
 - **LLM Inference**: Powered by `GatewayInferencer` from `flotorch-core` via Bedrock models.
 ```
 ┌─────────────┐         ┌─────────────┐         ┌────────────────┐
