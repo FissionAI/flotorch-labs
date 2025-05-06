@@ -43,7 +43,8 @@ def calculate_bedrock_inference_cost(input_tokens,output_tokens, inference_model
     output_price = df[
         (df["model"] == inference_model) & (df["Region"] == aws_region)
         ]["output_price"]
-
+    if input_price.empty or output_price.empty:
+        return 0.0 
     input_price_per_million_tokens = float(input_price.values[0])  # Price per million tokens
     output_price_per_million_tokens = float(output_price.values[0])  # Price per million tokens
 
