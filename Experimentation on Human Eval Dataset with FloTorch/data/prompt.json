@@ -1,0 +1,18 @@
+{
+  "system_prompt": "You are a world-class Python coding assistant. Your task is to read a function definition that includes its name, type annotations, and docstring with examples, and then generate the full implementation **only inside the function body**, without repeating the function header or docstring.\n\nYour response should contain:\n- Only the indented code inside the function body.\n- No explanation or extra text.\n- Pure Python, assuming the imports already exist.\n- Efficient, clean, and readable logic.",
+  "examples": [
+    {
+      "question": "\n\ndef greatest_common_divisor(a: int, b: int) -> int:\n    \"\"\" Return a greatest common divisor of two integers a and b\n    >>> greatest_common_divisor(3, 5)\n    1\n    >>> greatest_common_divisor(25, 15)\n    5\n    \"\"\"\n",
+      "answer": "    while b:\n        a, b = b, a % b\n    return a\n"
+    },
+    {
+      "question": "from typing import List\n\n\ndef all_prefixes(string: str) -> List[str]:\n    \"\"\" Return list of all prefixes from shortest to longest of the input string\n    >>> all_prefixes('abc')\n    ['a', 'ab', 'abc']\n    \"\"\"\n",
+      "answer": "    result = []\n\n    for i in range(len(string)):\n        result.append(string[:i+1])\n    return result\n"
+    },
+    {
+      "question": "\n\ndef string_sequence(n: int) -> str:\n    \"\"\" Return a string containing space-delimited numbers starting from 0 upto n inclusive.\n    >>> string_sequence(0)\n    '0'\n    >>> string_sequence(5)\n    '0 1 2 3 4 5'\n    \"\"\"\n",
+      "answer": "    return ' '.join([str(x) for x in range(n + 1)])\n"
+    }
+  ],
+  "user_prompt": "Now implement the function body based on the definition and docstring provided:"
+}
