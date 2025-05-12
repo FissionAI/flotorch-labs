@@ -15,25 +15,26 @@ Requirements:
 
 ### Setup
 1. Clone the repository
-	# Run this in your terminal
-	# git clone https://github.com/FissionAI/flotorch-labs.git
-	# cd finance/finance-document-analyzer/
+	Run this in your terminal
+	-> git clone https://github.com/FissionAI/flotorch-labs.git
+	-> cd finance/finance-document-analyzer/
 
 2. Create and activate a virtual environment
-	# python -m venv venv
-# source venv/bin/activate (For Linux/macOS)
-# venv\Scripts\activate(For Windows)
+	-> python -m venv venv
+    -> source venv/bin/activate (For Linux/macOS)
+    -> venv\Scripts\activate(For Windows)
 
 3. Install dependencies
-	# pip install -r requirements.txt
+	-> pip install -r requirements.txt
 
 4. Set up environment variables
 	(For Linux/macOS)
-# export OPENAI_BASE_URL=https://<gateway-url>/api/openai/v1
-# export OPENAI_API_KEY=<secret-key>
+	-> export OPENAI_BASE_URL=https://<gateway-url>/api/openai/v1
+	-> export OPENAI_API_KEY=<secret-key>
 	(For Windows)
-# set OPENAI_BASE_URL=https://<gateway-url>/api/openai/v1
-# set OPENAI_API_KEY=<secret-key>
+	-> set OPENAI_BASE_URL=https://<gateway-url>/api/openai/v1
+	-> set OPENAI_API_KEY=<secret-key>
+	
 # Refer this flotorch-documentation for instructions on creating a FloTorch gateway and generating an API key.
 
 ## Running the Project
