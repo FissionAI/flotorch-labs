@@ -1,0 +1,102 @@
+extract_transactions:
+  description: >
+    Extract transaction data from the provided raw text. Each transaction should include:
+    - Transaction Date (standardized format: YYYY-MM-DD)
+    - Transaction ID
+    - Amount (numerical value)
+    - Debit/Credit indicator (explicitly "debit" or "credit")
+    - Description
+    Ensure all dates are standardized to YYYY-MM-DD format and amounts are properly formatted numbers.
+    The text to extract is:
+    {statement_text}
+  expected_output: >
+    A list of dictionaries, where each dictionary represents a transaction with the following fields:
+      date (YYYY-MM-DD), id, amount, type (debit/credit), description.
+  agent: transaction_extractor
+
+categorize_transactions:
+  description: >
+    Analyze the transaction descriptions and categorize each transaction into one of up to 10 
+    meaningful categories. Consider the nature of the transaction, merchant names, and common 
+    spending patterns when assigning categories.
+  expected_output: >
+    A list of dictionaries containing all transaction data from the input plus an additional 
+    'category' field assigned to each transaction. Categories should be consistent and meaningful.
+  agent: transaction_categorizer
+
+analyze_transactions:
+  description: >
+    Create a comprehensive analysis of the categorized transactions. Include:
+      - Spending distribution across categories (using only "debit" transactions)
+      - Monthly/periodic spending trends (using "transaction date")
+      - Unusual spending patterns or outliers (descriptive only)
+      - Top spending categories (using only "debit" transactions)
+      - Income vs. expense analysis
+      - Actionable insights and recommendations (descriptive only)
+  Rules and Constraints: >
+    - Use ONLY "debit" transactions for all spending-related calculations (spending distribution, top spending categories).
+    - For time-based analysis, use ONLY the "transaction date" field.
+    - Do NOT include credit (income) transactions in "spending_distribution" or "top_spending_categories".
+    - Ensure all numerical outputs are consistent with the categorized transactions data.
+    - Double-check the total income and expense values to ensure they accurately reflect the sum of all "credit" and "debit" transactions, respectively.
+    - When creating the spending distribution, ensure that the sum of all percentage values equals 100%.
+    - **Do NOT include any numerical values in the "unusual_spending_patterns", "insights", or "recommendations" sections. Focus solely on descriptive analysis.**
+  expected_output: >
+    A JSON object containing:
+    {
+      "summary_statistics": {
+        "total_income": <float>,
+        "total_expenses": <float>,
+        "net_income": <float>,
+        "total_transactions": <int>,
+        "total_credits": <int>,
+        "total_debits": <int>
+      },
+      "temporal_trends": {
+        "monthly_spending": [
+          {
+            "month": <string>,
+            "income": <float>,
+            "expenses": <float>,
+            "balance": <float>
+          }
+        ],
+        "unusual_spending_patterns": [
+          {
+            "description": <string>
+          }
+        ]
+      },
+      "category_analysis": {
+        "spending_distribution": [
+          {
+            "category": <string>,
+            "amount": <float>,
+            "percentage": <float>
+          }
+        ],
+        "top_spending_categories": [
+          {
+            "category": <string>,
+            "amount": <float>
+          }
+        ]
+      },
+      "visual_representations": {
+        "spending_distribution_pie_chart": "<base64_encoded_image_or_placeholder>",
+        "monthly_income_vs_expense_bar_graph": "<base64_encoded_image_or_placeholder>"
+      },
+      "key_insights_and_recommendations": {
+        "insights": [
+          {
+            "description": <string>
+          }
+        ],
+        "recommendations": [
+          {
+            "description": <string>
+          }
+        ]
+      }
+    }
+  agent: financial_analyst
