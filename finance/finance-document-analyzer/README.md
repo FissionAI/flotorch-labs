@@ -1,68 +1,48 @@
-# Floagentdemo Crew
+# Financial Document Analyzer(crewai-finagent)
 
-Welcome to the Floagentdemo Crew project, powered by [crewAI](https://crewai.com). This is a simple agentic workflow of a financial agent. The crew takes pdf as input and outputs a detailed finanacial analysis report
+crewai-finagent is an AI-powered application developed using FloTorch, a modern agent orchestration and experimentation framework. It leverages the CrewAI ecosystem to build multi-agent LLM workflows where specialized agents collaborate to complete a task.
+
+In this case, the goal is simple but powerful: take a financial PDF, and turn it into structured, categorized, and insightful data — automatically.
+In this project, three AI agents work together in sequence.
+    1. Extract raw transactions from a PDF.
+    2. Categorize those transactions by type (e.g., groceries, rent).
+    3. Analyze the data to produce a summary of your financial habits
 
 ## Installation
+Requirements:
+    Python 3.10+
+    FloTorch Base URL and  API key
 
-Ensure you have Python >=3.10 <3.13 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
-
-First, if you haven't already, install uv:
-
-```bash
-pip install uv
-```
-
-Next, navigate to your project directory and install the dependencies:
-
-(Optional) Lock the dependencies and install them by using the CLI command:
-```bash
-crewai install
-```
 ### Setup
+1. Clone the repository
+	# Run this in your terminal
+	# git clone https://github.com/FissionAI/flotorch-labs.git
+	# cd finance/finance-document-analyzer/
 
-**Rename `.env.example` to `.env` and add Flotorch Gateway Key as  `OPENAI_API_KEY`**
+2. Create and activate a virtual environment
+	# python -m venv venv
+# source venv/bin/activate (For Linux/macOS)
+# venv\Scripts\activate(For Windows)
 
-- Modify `src/floagentdemo/config/agents.yaml` to define your agents
-- Modify `src/floagentdemo/config/tasks.yaml` to define your tasks
-- Modify `src/floagentdemo/crew.py` to add your own logic, tools and specific args
-- Modify `src/floagentdemo/main.py` to add custom inputs for your agents and tasks
-- Modify `src/floagentdemo/api.py` to add your own logic, tools and specific args
+3. Install dependencies
+	# pip install -r requirements.txt
 
-If you are using a different FloTorch Gateway, you can modify the `OPENAI_API_BASE` in the `.env` file. by default it is set to `https://fphcciizk3.us-east-1.awsapprunner.com/api/v1`
+4. Set up environment variables
+	(For Linux/macOS)
+# export OPENAI_BASE_URL=https://<gateway-url>/api/openai/v1
+# export OPENAI_API_KEY=<secret-key>
+	(For Windows)
+# set OPENAI_BASE_URL=https://<gateway-url>/api/openai/v1
+# set OPENAI_API_KEY=<secret-key>
+# Refer this flotorch-documentation for instructions on creating a FloTorch gateway and generating an API key.
 
-## Running the CrewAI Project
-
+## Running the Project
 To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-$ crewai run
-```
-
-This command initializes the floagentdemo Crew, assembling the agents and assigning them tasks as defined in your configuration.
-
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+RUN python -m streamlit run src/floagentdemo/streamlitDemo/app.py
 
 **Note:** Make sure you activate the virtual environment before running the crewai run command.
 
-## Running the api
-
-```bash
-uvicorn src.floagentdemo.api:app
-```
-
-The api server should be running on `http://127.0.0.1:8000`
-
-**Note:** Make sure you activate the virtual environment before running the api server.
-
-## Troubleshooting
-
-If your env variables are not being loaded, you can try to run the following command:
-
-```bash
-OPENAI_API_BASE="https://fphcciizk3.us-east-1.awsapprunner.com/api/v1" OPENAI_API_KEY="your-api-key" uvicorn src.floagentdemo.api:app
-```
-
-
+You’ll be prompted to upload a financial PDF — for example, a bank or credit card statement.
 
 ## Understanding Your Crew
 
