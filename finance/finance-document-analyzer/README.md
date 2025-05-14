@@ -22,7 +22,7 @@ In this project, the goal is simple but powerful: take a financial PDF and turn 
     Open your terminal and run the following commands:
 
     ```bash
-    git clone [https://github.com/FissionAI/flotorch-labs.git](https://github.com/FissionAI/flotorch-labs.git)
+    git clone https://github.com/FissionAI/flotorch-labs.git
     cd finance/finance-document-analyzer/
     ```
 
