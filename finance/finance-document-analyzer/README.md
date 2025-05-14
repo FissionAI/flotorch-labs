@@ -1,64 +1,92 @@
-# Financial Document Analyzer(crewai-finagent)
+# Financial Document Analyzer (crewai-finagent)
 
-crewai-finagent is an AI-powered application developed using FloTorch, a modern agent orchestration and experimentation framework. It leverages the CrewAI ecosystem to build multi-age>
+crewai-finagent is an AI-powered application developed using FloTorch, a modern agent orchestration and experimentation framework. It leverages the CrewAI ecosystem to build multi-agent systems.
 
-In this case, the goal is simple but powerful: take a financial PDF, and turn it into structured, categorized, and insightful data — automatically.
-In this project, three AI agents work together in sequence.
+In this project, the goal is simple but powerful: take a financial PDF and turn it into structured, categorized, and insightful data — automatically. Three AI agents work together in sequence:
 
-1. Extract raw transactions from a PDF.
-
-2. Categorize those transactions by type (e.g., groceries, rent).
-
-3. Analyze the data to produce a summary of your financial habits
+1.  **Extract Raw Transactions:** The first agent extracts the raw transaction data directly from the uploaded PDF.
+2.  **Categorize Transactions:** The second agent intelligently categorizes these transactions by type (e.g., groceries, rent, entertainment).
+3.  **Financial Analysis:** Finally, the third agent analyzes the categorized data to produce a concise summary of your financial habits and spending patterns.
 
 ## Installation
-Requirements:
 
-Python 3.10+
-FloTorch Base URL and  API key
+### Requirements
+
+1.  Python 3.10+
+2.  FloTorch Base URL and API key
 
 ### Setup
 
-1. Clone the repository
+1.  **Clone the Repository**
 
--> git clone https://github.com/FissionAI/flotorch-labs.git
--> cd finance/finance-document-analyzer/
+    Open your terminal and run the following commands:
 
-2. Create and activate a virtual environment
+    ```bash
+    git clone [https://github.com/FissionAI/flotorch-labs.git](https://github.com/FissionAI/flotorch-labs.git)
+    cd finance/finance-document-analyzer/
+    ```
 
--> python -m venv venv
--> source venv/bin/activate (For Linux/macOS)
--> venv\Scripts\activate(For Windows)
+2.  **Create and Activate a Virtual Environment**
 
-3. Install dependencies
+    It's highly recommended to use a virtual environment to manage project dependencies.
 
--> pip install -r requirements.txt
+    ```bash
+    # For Linux/macOS
+    python -m venv venv
+    source venv/bin/activate
 
-4. Set up environment variables
+    # For Windows
+    python -m venv venv
+    venv\Scripts\activate
+    ```
 
-(For Linux/macOS)
--> export OPENAI_BASE_URL=https://<gateway-url>/api/openai/v1
--> export OPENAI_API_KEY=<secret-key>
+3.  **Install Dependencies**
 
-(For Windows)
--> set OPENAI_BASE_URL=https://<gateway-url>/api/openai/v1
--> set OPENAI_API_KEY=<secret-key>
+    Navigate to the project directory and install the required Python packages:
 
-(or create .env file and add below) 
--> OPENAI_BASE_URL=https://<gateway-url>/api/openai/v1
--> OPENAI_API_KEY=<secret-key>
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-# Refer this flotorch-documentation for instructions on creating a FloTorch gateway and generating an API key.
+4.  **Set Up Environment Variables**
+
+    You need to configure your FloTorch Base URL and API key. You can do this in a few ways:
+
+    **Option 1: Exporting Environment Variables (for the current session)**
+
+    ```bash
+    # For Linux/macOS
+    export OPENAI_BASE_URL=https://<gateway-url>/api/openai/v1
+    export OPENAI_API_KEY=<secret-key>
+
+    # For Windows
+    set OPENAI_BASE_URL=https://<gateway-url>/api/openai/v1
+    set OPENAI_API_KEY=<secret-key>
+    ```
+
+    **Option 2: Creating a `.env` File (recommended for persistent configuration)**
+
+    Create a file named `.env` in the root of your project and add the following lines, replacing the placeholders with your actual values:
+
+    ```
+    OPENAI_BASE_URL=https://<gateway-url>/api/openai/v1
+    OPENAI_API_KEY=<secret-key>
+    ```
+
+    **Note:** Using a `.env` file often requires an additional library to load these variables (though it's not strictly necessary for this setup if you access them using `os.environ`).
+
 
 ## Running the Project
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-RUN python -m streamlit run src/floagentdemo/streamlitDemo/app.py
 
-**Note:** Make sure you activate the virtual environment before running the crewai run command.
+To start your crew of AI agents and begin the financial document analysis, execute the following command from the root folder of your project:
+
+```bash
+python -m streamlit run src/floagentdemo/streamlitDemo/app.py
+```
+**Note:** Make sure you activate the virtual environment before running the streamlit run command.
 
 You’ll be prompted to upload a financial PDF — for example, a bank or credit card statement.
 
 ## Understanding Your Crew
 
 The floagentdemo Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
-
