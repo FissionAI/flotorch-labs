@@ -3,6 +3,9 @@ import time
 from utils.fileProcessing import process_pdf
 from utils.dashboard import build_dashboard
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def applyStylesForTable():
     # Apply Custom CSS
