@@ -3,14 +3,15 @@
 This repository houses a collection of Proof of Concept (POC) applications demonstrating the power and flexibility of the [CrewAI](https://www.crewai.com/) framework in tackling various financial tasks. Each application within the `src` directory explores specific use cases, showcasing how intelligent agents can collaborate to analyze data, generate insights, and automate workflows within the finance domain.
 
 ## 📂 Directory Structure
-
-crewai-finance-agents/
-├── src/
-│   └── financial_document_analyzer/
-│       ├── ... (Source code, data, and other resources for the financial document analyzer app)
-│       └── README.md  (Specific README for the financial document analyzer)
-│   └── ... (Other financial POC applications will reside here)
-└── README.md (This project-level README)
+    ```bash
+    crewai-finance-agents/
+    ├── src/
+    │   └── financial_document_analyzer/
+    │       ├── ... (Source code, data, and other resources for the financial document analyzer app)
+    │       └── README.md  (Specific README for the financial document analyzer)
+    │   └── ... (Other financial POC applications will reside here)
+    └── README.md (This project-level README)
+    ```
 
 The `src` directory is the heart of this repository, containing individual folders for each financial POC application.
 
@@ -35,12 +36,7 @@ To explore these financial POC applications, ensure you have [CrewAI](https://ww
     cd finance/crewai-finance-agents
     ```
 
-2.  **Navigate to the specific application directory:**
-    ```bash
-    cd src/financial_document_analyzer
-    ```
-
-3.  **Follow the instructions within the application's README file** (e.g., [src/financial_document_analyzer/README.md](src/financial_document_analyzer/README.md)) for setup and execution. This will typically involve installing necessary dependencies and configuring API keys if required.
+2.  **Follow the instructions within the application's README file** (e.g., [src/financial_document_analyzer/README.md](src/financial_document_analyzer/README.md)) for setup and execution. This will typically involve installing necessary dependencies and configuring API keys if required.
 
 ## ✨ Contributing
 
