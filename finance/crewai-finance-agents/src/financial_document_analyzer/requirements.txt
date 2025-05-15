@@ -1,0 +1,6 @@
+crewai==0.114.0
+streamlit==1.45.1
+fpdf2==2.8.2
+plotly==6.0.1
+pypdf==5.4.0
+kaleido==0.2.1
