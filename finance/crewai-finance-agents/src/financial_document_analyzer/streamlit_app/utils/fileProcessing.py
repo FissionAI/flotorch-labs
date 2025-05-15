@@ -3,7 +3,7 @@ import traceback
 import pypdf
 import json
 import re
-from src.crewai_finagent_app.crew import Floagentdemo
+from src.financial_document_analyzer.crew import Floagentdemo
 import pandas as pd
 
 

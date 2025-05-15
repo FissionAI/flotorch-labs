@@ -24,10 +24,10 @@
     ],
     "unusual_spending_patterns": [
       {
-        "description": "Higher spending in July compared to June, potentially due to travel expenses (Delta Airlines and Florida Shadow Hotel)"
+        "description": "Higher travel expenses in July, including hotel and airline charges"
       },
       {
-        "description": "Large single transaction at KMART (106.90) on June 25, which is significantly higher than the average transaction amount"
+        "description": "Increased shopping expenses in June, with a large purchase at KMART"
       }
     ]
   },
@@ -39,14 +39,14 @@
         "percentage": 31.31
       },
       {
+        "category": "Shopping",
+        "amount": 166.00,
+        "percentage": 24.75
+      },
+      {
         "category": "Groceries",
         "amount": 170.21,
         "percentage": 25.37
-      },
-      {
-        "category": "Shopping",
-        "amount": 106.90,
-        "percentage": 15.94
       },
       {
         "category": "Transportation",
@@ -54,19 +54,14 @@
         "percentage": 9.56
       },
       {
-        "category": "Clothing",
-        "amount": 59.10,
-        "percentage": 8.81
+        "category": "Dining Out",
+        "amount": 20.30,
+        "percentage": 3.03
       },
       {
         "category": "Auto Maintenance",
         "amount": 40.20,
         "percentage": 5.99
-      },
-      {
-        "category": "Dining",
-        "amount": 20.30,
-        "percentage": 3.03
       }
     ],
     "top_spending_categories": [
@@ -80,7 +75,7 @@
       },
       {
         "category": "Shopping",
-        "amount": 106.90
+        "amount": 166.00
       }
     ]
   },
@@ -91,33 +86,33 @@
   "key_insights_and_recommendations": {
     "insights": [
       {
-        "description": "Travel expenses make up the largest portion of spending at 31.31%"
+        "description": "Travel expenses are the highest category, accounting for 31.31% of total spending"
       },
       {
-        "description": "Groceries are the second-highest expense category at 25.37%"
+        "description": "There's a significant increase in spending from June to July, primarily due to travel-related expenses"
       },
       {
-        "description": "There are no income transactions recorded in this period"
+        "description": "Groceries and shopping are the second and third highest spending categories, respectively"
       },
       {
-        "description": "July spending is significantly higher than June spending"
+        "description": "There's no income recorded in the given transaction data, resulting in a negative net income"
       }
     ],
     "recommendations": [
       {
-        "description": "Consider reducing travel expenses by looking for more affordable options or limiting non-essential trips"
+        "description": "Review travel expenses and look for opportunities to reduce costs, such as booking in advance or using loyalty programs"
       },
       {
-        "description": "Look for ways to reduce grocery expenses, such as meal planning or using coupons"
+        "description": "Consider meal planning and bulk shopping to potentially reduce grocery expenses"
       },
       {
-        "description": "Set a budget for each category to control spending, especially in high-expense areas like travel and groceries"
+        "description": "Evaluate shopping habits, particularly large purchases like the one at KMART, to identify areas for potential savings"
       },
       {
-        "description": "Track income transactions to get a more accurate picture of financial health"
+        "description": "Set up a budget for each spending category to better control expenses"
       },
       {
-        "description": "Review the large KMART transaction to ensure it was necessary and consider spreading out large purchases in the future"
+        "description": "Look into tracking income sources to get a complete picture of financial health"
       }
     ]
   }
