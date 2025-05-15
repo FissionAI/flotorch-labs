@@ -4,7 +4,7 @@ import warnings
 
 from datetime import datetime
 
-from floagentdemo.crew import Floagentdemo
+from crewai_finagent_app.crew import Floagentdemo
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -18,7 +18,7 @@ def run():
     Run the crew.
     """
     """ Read text from file"""
-    with open('src/floagentdemo/data/statement.txt', 'r') as file:
+    with open('src/crewai_finagent_app/data/statement.txt', 'r') as file:
         contents = file.read()
     inputs = {
         'statement_text': contents,
@@ -34,7 +34,7 @@ def train():
     """
     Train the crew for a given number of iterations.
     """
-    with open('src/floagentdemo/data/statement.txt', 'r') as file:
+    with open('src/crewai_finagent_app/data/statement.txt', 'r') as file:
         contents = file.read()
     inputs = {
         'statement_text': contents,
@@ -59,7 +59,7 @@ def test():
     """
     Test the crew execution and returns the results.
     """
-    with open('src/floagentdemo/data/statement.txt', 'r') as file:
+    with open('src/crewai_finagent_app/data/statement.txt', 'r') as file:
         contents = file.read()
     inputs = {
         'statement_text': contents,

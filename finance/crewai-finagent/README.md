@@ -23,7 +23,7 @@ In this project, the goal is simple but powerful: take a financial PDF and turn 
 
     ```bash
     git clone https://github.com/FissionAI/flotorch-labs.git
-    cd finance/finance-document-analyzer/
+    cd finance/crewai-finagent/
     ```
 
 2.  **Create and Activate a Virtual Environment**
@@ -81,7 +81,7 @@ In this project, the goal is simple but powerful: take a financial PDF and turn 
 To start your crew of AI agents and begin the financial document analysis, execute the following command from the root folder of your project:
 
 ```bash
-python -m streamlit run src/floagentdemo/streamlitDemo/app.py
+python -m streamlit run src/crewai_finagent_app/streamlit_app/app.py
 ```
 **Note:** Make sure you activate the virtual environment before running the streamlit run command.
 
@@ -89,4 +89,4 @@ You’ll be prompted to upload a financial PDF — for example, a bank or credit
 
 ## Understanding Your Crew
 
-The floagentdemo Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+The crewai_finagent_app Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.

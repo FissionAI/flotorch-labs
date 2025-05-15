@@ -1,0 +1,124 @@
+{
+  "summary_statistics": {
+    "total_income": 0,
+    "total_expenses": 670.81,
+    "net_income": -670.81,
+    "total_transactions": 10,
+    "total_credits": 0,
+    "total_debits": 10
+  },
+  "temporal_trends": {
+    "monthly_spending": [
+      {
+        "month": "June 2019",
+        "income": 0,
+        "expenses": 258.22,
+        "balance": -258.22
+      },
+      {
+        "month": "July 2019",
+        "income": 0,
+        "expenses": 412.59,
+        "balance": -412.59
+      }
+    ],
+    "unusual_spending_patterns": [
+      {
+        "description": "Higher spending in July compared to June, potentially due to travel expenses (Delta Airlines and Florida Shadow Hotel)"
+      },
+      {
+        "description": "Large single transaction at KMART (106.90) on June 25, which is significantly higher than the average transaction amount"
+      }
+    ]
+  },
+  "category_analysis": {
+    "spending_distribution": [
+      {
+        "category": "Travel",
+        "amount": 210.00,
+        "percentage": 31.31
+      },
+      {
+        "category": "Groceries",
+        "amount": 170.21,
+        "percentage": 25.37
+      },
+      {
+        "category": "Shopping",
+        "amount": 106.90,
+        "percentage": 15.94
+      },
+      {
+        "category": "Transportation",
+        "amount": 64.10,
+        "percentage": 9.56
+      },
+      {
+        "category": "Clothing",
+        "amount": 59.10,
+        "percentage": 8.81
+      },
+      {
+        "category": "Auto Maintenance",
+        "amount": 40.20,
+        "percentage": 5.99
+      },
+      {
+        "category": "Dining",
+        "amount": 20.30,
+        "percentage": 3.03
+      }
+    ],
+    "top_spending_categories": [
+      {
+        "category": "Travel",
+        "amount": 210.00
+      },
+      {
+        "category": "Groceries",
+        "amount": 170.21
+      },
+      {
+        "category": "Shopping",
+        "amount": 106.90
+      }
+    ]
+  },
+  "visual_representations": {
+    "spending_distribution_pie_chart": "<base64_encoded_image_or_placeholder>",
+    "monthly_income_vs_expense_bar_graph": "<base64_encoded_image_or_placeholder>"
+  },
+  "key_insights_and_recommendations": {
+    "insights": [
+      {
+        "description": "Travel expenses make up the largest portion of spending at 31.31%"
+      },
+      {
+        "description": "Groceries are the second-highest expense category at 25.37%"
+      },
+      {
+        "description": "There are no income transactions recorded in this period"
+      },
+      {
+        "description": "July spending is significantly higher than June spending"
+      }
+    ],
+    "recommendations": [
+      {
+        "description": "Consider reducing travel expenses by looking for more affordable options or limiting non-essential trips"
+      },
+      {
+        "description": "Look for ways to reduce grocery expenses, such as meal planning or using coupons"
+      },
+      {
+        "description": "Set a budget for each category to control spending, especially in high-expense areas like travel and groceries"
+      },
+      {
+        "description": "Track income transactions to get a more accurate picture of financial health"
+      },
+      {
+        "description": "Review the large KMART transaction to ensure it was necessary and consider spreading out large purchases in the future"
+      }
+    ]
+  }
+}
