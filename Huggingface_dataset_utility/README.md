@@ -72,9 +72,12 @@ ANSWER_FIELDS: ["solution"]
 
 ```json
 {
-  "question": "Write a function that returns the sum of two numbers.",
-  "answer": "def add(a, b):\n    return a + b"
+  "question": "def add_numbers(a: int, b: int) -> int:\n    \"\"\" Returns the sum of two integers \"\"\"\n",
+
+  "answer": "def add_numbers(a: int, b: int) -> int:\n    return a + b"
+
 }
+
 ```
 
 ---
