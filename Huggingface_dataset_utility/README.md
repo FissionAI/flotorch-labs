@@ -58,8 +58,6 @@ ANSWER_FIELDS: ["solution"]
    python Flotorch_dataset_utility.py
    ```
 
-   Replace `Flotorch_dataset_utility.py` with the actual filename if different.
-
 3. **Output**
 
    * Saves processed JSON file to:
