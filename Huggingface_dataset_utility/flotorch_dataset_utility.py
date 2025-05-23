@@ -41,3 +41,6 @@ def load_and_save_ground_truth():
             json.dump(split_list, f, indent=4, ensure_ascii=False)
 
         print(f"✅ Saved {split} split to {output_file}")
+
+if __name__ == "__main__":
+    load_and_save_ground_truth()
