@@ -1,0 +1,5 @@
+DATASET_NAME: "openai_humaneval"
+QUESTION_FIELDS: ["prompt"]
+ANSWER_FIELDS: [ "canonical_solution"]
+DATASET_CONFIG:  # Optional
+HF_TOKEN: # Optional
